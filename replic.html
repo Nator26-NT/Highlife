@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weedzz 420 - Premium Cannabis Products & Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        :root {
+            --primary: #1a3b2a;
+            --primary-light: #2a5a3f;
+            --secondary: #6e45c7;
+            --accent: #a3e635;
+            --accent-dark: #8cc42a;
+            --background: #f8f9fa;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --text-lighter: #718096;
+            --white: #ffffff;
+            --gray-100: #edf2f7;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e0;
+            --gray-400: #a0aec0;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+            --vip-gold: #ffd700;
+            --vip-purple: #8a2be2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5d38b0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-vip {
+            background: linear-gradient(45deg, var(--vip-gold), var(--vip-purple));
+            color: white;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn-vip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--card-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar-links a:hover {
+            color: var(--accent);
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            font-size: 2.2rem;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 30px;
+            border: 1px solid var(--gray-300);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .user-icon:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(rgba(26, 59, 42, 0.8), rgba(26, 59, 42, 0.8)), url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .effect-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .effect-filter {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .effect-filter:hover, .effect-filter.active {
+            background-color: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        /* ===== PRODUCT SHOWCASE SECTION ===== */
+        .product-showcase {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .showcase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product-categories {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .product-category {
+            background-color: var(--gray-200);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .product-category.active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-image {
+            height: 180px;
+            background-color: var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .product-brand {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #f59e0b;
+        }
+
+        .product-thc {
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .product-price .original {
+            text-decoration: line-through;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        .product-effects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .effect-tag {
+            background-color: var(--gray-100);
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        /* Category sections */
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .view-all-btn {
+            color: var(--secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .view-all-btn:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        /* ===== EFFECTS WHEEL SECTION ===== */
+        .effects-section {
+            padding: 60px 0;
+            background-color: var(--gray-100);
+        }
+
+        .effects-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .effects-wheel {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 40px auto;
+        }
+
+        .wheel-center {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 0 0 10px rgba(163, 230, 53, 0.3);
+        }
+
+        .wheel-center span {
+            font-size: 0.9rem;
+        }
+
+        .wheel-center .main-effect {
+            font-size: 1.3rem;
+            line-height: 1.2;
+        }
+
+        .wheel-slice {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: 100% 100%;
+            left: 0;
+            top: 0;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-bottom: 40px;
+            padding-right: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .wheel-slice:hover {
+            transform: scale(1.05);
+        }
+
+        .wheel-slice:nth-child(1) {
+            background-color: #f59e0b;
+            transform: rotate(0deg) skewY(30deg);
+        }
+
+        .wheel-slice:nth-child(2) {
+            background-color: #10b981;
+            transform: rotate(60deg) skewY(30deg);
+        }
+
+        .wheel-slice:nth-child(3) {
+            background-color: #3b82f6;
+            transform: rotate(120deg) skewY(30deg);
+        }
+
+        .wheel-slice:nth-child(4) {
+            background-color: #8b5cf6;
+            transform: rotate(180deg) skewY(30deg);
+        }
+
+        .wheel-slice:nth-child(5) {
+            background-color: #ec4899;
+            transform: rotate(240deg) skewY(30deg);
+        }
+
+        .wheel-slice:nth-child(6) {
+            background-color: #ef4444;
+            transform: rotate(300deg) skewY(30deg);
+        }
+
+        .slice-label {
+            transform: skewY(-30deg) rotate(30deg);
+            color: var(--white);
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .effects-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .effect-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            width: 180px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .effect-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .effect-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .effect-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .effect-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ===== WEED BLOG SECTION ===== */
+        .weed-blog {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .blog-categories {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .blog-category {
+            background-color: var(--gray-200);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .blog-category.active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid var(--gray-200);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            height: 180px;
+            background-color: var(--gray-200);
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-type {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .blog-link {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ===== VIP LOUNGE SECTION ===== */
+        .vip-lounge {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .vip-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vip-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--vip-gold);
+        }
+
+        .vip-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .vip-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .vip-benefit {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .vip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--vip-gold);
+        }
+
+        .vip-benefit-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .vip-benefit-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .vip-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+        }
+
+        .vip-form input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .vip-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===== AGE VERIFICATION MODAL ===== */
+        .age-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-logo {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .modal-text {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            min-width: 140px;
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1200px) {
+            .effects-wheel {
+                width: 400px;
+                height: 400px;
+            }
+            
+            .wheel-center {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .main-nav {
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .search-bar {
+                width: 250px;
+            }
+            
+            .effects-wheel {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links, .search-bar {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .effects-wheel {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .wheel-slice {
+                padding-bottom: 30px;
+                padding-right: 20px;
+            }
+            
+            .slice-label {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .effects-wheel {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .wheel-center {
+                width: 80px;
+                height: 80px;
+                font-size: 0.8rem;
+            }
+            
+            .wheel-center .main-effect {
+                font-size: 1rem;
+            }
+            
+            .slice-label {
+                font-size: 0.8rem;
+            }
+            
+            .effect-item {
+                width: 150px;
+                padding: 15px;
+            }
+            
+            .product-categories, .blog-categories {
+                flex-wrap: wrap;
+            }
+            
+            .vip-title {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Age Verification Modal -->
+    <div class="age-modal">
+        <div class="modal-content">
+            <div class="modal-logo">
+                <i class="fas fa-cannabis"></i>
+            </div>
+            <h2 class="modal-title">Age Verification</h2>
+            <p class="modal-text">You must be at least 21 years old to access this website. By entering, you confirm that you are of legal age to purchase cannabis products in your jurisdiction.</p>
+            <div class="modal-buttons">
+                <button class="btn btn-primary modal-btn" id="age-confirm">I am 21 or older</button>
+                <button class="btn btn-outline modal-btn" id="age-deny">I am under 21</button>
+            </div>
+            <p class="modal-text" style="margin-top: 20px; font-size: 0.9rem;">For medical use only where permitted by law. Please consume responsibly.</p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div>Premium Cannabis Products & Community</div>
+                <div class="top-bar-links">
+                    <a href="#">VIP Deals</a>
+                    <a href="#">New Arrivals</a>
+                    <a href="#">Limited Editions</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="container header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cannabis logo-icon"></i>
+                    <span>Weedzz 420</span>
+                </a>
+                
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Products</a></li>
+                        <li><a href="#">Strains</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">VIP Lounge</a></li>
+                    </ul>
+                    
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search products, strains...">
+                    </div>
+                    
+                    <div class="user-actions">
+                        <i class="fas fa-user user-icon"></i>
+                        <i class="fas fa-shopping-cart user-icon"></i>
+                    </div>
+                </nav>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Elevate Your Cannabis Experience</h1>
+                <p class="hero-subtitle">Premium products curated for every type of enthusiast</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                    <a href="#" class="btn btn-vip">Join VIP Lounge</a>
+                </div>
+                
+                <div class="effect-filters">
+                    <div class="effect-filter active">All Products</div>
+                    <div class="effect-filter">Flower</div>
+                    <div class="effect-filter">Edibles</div>
+                    <div class="effect-filter">Concentrates</div>
+                    <div class="effect-filter">Pre-rolls</div>
+                    <div class="effect-filter">Vapes</div>
+                    <div class="effect-filter">Accessories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="showcase-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="product-categories">
+                    <div class="product-category active">All</div>
+                    <div class="product-category">Indica</div>
+                    <div class="product-category">Sativa</div>
+                    <div class="product-category">Hybrid</div>
+                    <div class="product-category">CBD</div>
+                    <div class="product-category">On Sale</div>
+                </div>
+            </div>
+            
+            <!-- Flower Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3>Flower</h3>
+                    <a href="#" class="view-all-btn">View All Flower <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">BESTSELLER</div>
+                            <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blue Dream">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Blue Dream</h3>
+                            <div class="product-brand">Premium Gardens</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7 (42)</span>
+                                </div>
+                                <div class="product-thc">THC: 18%</div>
+                            </div>
+                            <div class="product-price">$45 <span class="original">$55</span></div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Happy</div>
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Euphoric</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1599422319747-251b75c1e1f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="OG Kush">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">OG Kush</h3>
+                            <div class="product-brand">Kush Kingdom</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (36)</span>
+                                </div>
+                                <div class="product-thc">THC: 23%</div>
+                            </div>
+                            <div class="product-price">$50</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Sleepy</div>
+                                <div class="effect-tag">Hungry</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1621372277986-1e5f3b5fd229?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sour Diesel">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Sour Diesel</h3>
+                            <div class="product-brand">Diesel Co.</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5 (28)</span>
+                                </div>
+                                <div class="product-thc">THC: 20%</div>
+                            </div>
+                            <div class="product-price">$48</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Energetic</div>
+                                <div class="effect-tag">Creative</div>
+                                <div class="effect-tag">Euphoric</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">VIP ONLY</div>
+                            <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Girl Scout Cookies">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Girl Scout Cookies</h3>
+                            <div class="product-brand">Cookie Fam</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (56)</span>
+                                </div>
+                                <div class="product-thc">THC: 28%</div>
+                            </div>
+                            <div class="product-price">$60 <span class="original">$75</span></div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Happy</div>
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Euphoric</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Edibles Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3>Edibles</h3>
+                    <a href="#" class="view-all-btn">View All Edibles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1616699002807-39e0ebf5f8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Berry Gummies">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Berry Gummies</h3>
+                            <div class="product-brand">Sweet Relief</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6 (38)</span>
+                                </div>
+                                <div class="product-thc">THC: 10mg</div>
+                            </div>
+                            <div class="product-price">$25</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Euphoric</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1603974372033-9b2453c5f021?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Chocolate Bar">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Dark Chocolate Bar</h3>
+                            <div class="product-brand">CannaChoc</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (45)</span>
+                                </div>
+                                <div class="product-thc">THC: 15mg</div>
+                            </div>
+                            <div class="product-price">$28</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Happy</div>
+                                <div class="effect-tag">Relaxed</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Caramels">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Salted Caramels</h3>
+                            <div class="product-brand">Elevated Sweets</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7 (32)</span>
+                                </div>
+                                <div class="product-thc">THC: 12mg</div>
+                            </div>
+                            <div class="product-price">$22</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Calm</div>
+                                <div class="effect-tag">Happy</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">LIMITED</div>
+                            <img src="https://images.unsplash.com/photo-1629561253898-768105ca91a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="CBD Gummies">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">CBD Relax Gummies</h3>
+                            <div class="product-brand">Pure Balance</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (67)</span>
+                                </div>
+                                <div class="product-thc">CBD: 25mg</div>
+                            </div>
+                            <div class="product-price">$30</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Pain Relief</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Concentrates Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3>Concentrates</h3>
+                    <a href="#" class="view-all-btn">View All Concentrates <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">BESTSELLER</div>
+                            <img src="https://images.unsplash.com/photo-1608268997940-3f5e7b2d7e9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Live Resin">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Live Resin</h3>
+                            <div class="product-brand">TerpTech</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (52)</span>
+                                </div>
+                                <div class="product-thc">THC: 85%</div>
+                            </div>
+                            <div class="product-price">$60</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Euphoric</div>
+                                <div class="effect-tag">Creative</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1603974372033-9b2453c5f021?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Shatter">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">OG Kush Shatter</h3>
+                            <div class="product-brand">Kush Kingdom</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7 (41)</span>
+                                </div>
+                                <div class="product-thc">THC: 80%</div>
+                            </div>
+                            <div class="product-price">$55</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Sleepy</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wax">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Sour Diesel Wax</h3>
+                            <div class="product-brand">Diesel Co.</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6 (36)</span>
+                                </div>
+                                <div class="product-thc">THC: 82%</div>
+                            </div>
+                            <div class="product-price">$58</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Energetic</div>
+                                <div class="effect-tag">Creative</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1599422319747-251b75c1e1f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rosin">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Gelato Rosin</h3>
+                            <div class="product-brand">Solventless Kings</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (48)</span>
+                                </div>
+                                <div class="product-thc">THC: 78%</div>
+                            </div>
+                            <div class="product-price">$65</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Happy</div>
+                                <div class="effect-tag">Euphoric</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pre-rolls Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3>Pre-rolls</h3>
+                    <a href="#" class="view-all-btn">View All Pre-rolls <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">BESTSELLER</div>
+                            <img src="https://images.unsplash.com/photo-1621372277986-1e5f3b5fd229?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sour Diesel Pre-roll">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Sour Diesel Pre-roll</h3>
+                            <div class="product-brand">Diesel Co.</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7 (39)</span>
+                                </div>
+                                <div class="product-thc">THC: 22%</div>
+                            </div>
+                            <div class="product-price">$12</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Energetic</div>
+                                <div class="effect-tag">Creative</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wedding Cake Pre-roll">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Wedding Cake Pre-roll</h3>
+                            <div class="product-brand">Cake House</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (44)</span>
+                                </div>
+                                <div class="product-thc">THC: 25%</div>
+                            </div>
+                            <div class="product-price">$14</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Relaxed</div>
+                                <div class="effect-tag">Happy</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blue Dream Pre-roll">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Blue Dream Pre-roll</h3>
+                            <div class="product-brand">Premium Gardens</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6 (35)</span>
+                                </div>
+                                <div class="product-thc">THC: 19%</div>
+                            </div>
+                            <div class="product-price">$11</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Happy</div>
+                                <div class="effect-tag">Creative</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Infused Pre-roll">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Infused Pre-roll</h3>
+                            <div class="product-brand">Kush Kingdom</div>
+                            <div class="product-details">
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (57)</span>
+                                </div>
+                                <div class="product-thc">THC: 32%</div>
+                            </div>
+                            <div class="product-price">$18</div>
+                            <div class="product-effects">
+                                <div class="effect-tag">Euphoric</div>
+                                <div class="effect-tag">Relaxed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Effects Wheel Section -->
+    <section class="effects-section">
+        <div class="container">
+            <div class="effects-container">
+                <h2 class="section-title">Discover Your Perfect Effect</h2>
+                <p>Explore our effects wheel to find products tailored to your desired experience</p>
+                
+                <div class="effects-wheel">
+                    <div class="wheel-slice">
+                        <div class="slice-label">Relaxed</div>
+                    </div>
+                    <div class="wheel-slice">
+                        <div class="slice-label">Creative</div>
+                    </div>
+                    <div class="wheel-slice">
+                        <div class="slice-label">Energetic</div>
+                    </div>
+                    <div class="wheel-slice">
+                        <div class="slice-label">Social</div>
+                    </div>
+                    <div class="wheel-slice">
+                        <div class="slice-label">Focused</div>
+                    </div>
+                    <div class="wheel-slice">
+                        <div class="slice-label">Sleepy</div>
+                    </div>
+                    <div class="wheel-center">
+                        <span>Desired</span>
+                        <span class="main-effect">Effect</span>
+                    </div>
+                </div>
+                
+                <div class="effects-list">
+                    <div class="effect-item">
+                        <div class="effect-icon">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                        <h3 class="effect-name">Relaxation</h3>
+                        <p class="effect-desc">Unwind and release tension with calming strains</p>
+                    </div>
+                    <div class="effect-item">
+                        <div class="effect-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="effect-name">Creativity</h3>
+                        <p class="effect-desc">Spark imagination and artistic inspiration</p>
+                    </div>
+                    <div class="effect-item">
+                        <div class="effect-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3 class="effect-name">Energy</h3>
+                        <p class="effect-desc">Boost motivation and physical activity</p>
+                    </div>
+                    <div class="effect-item">
+                        <div class="effect-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3 class="effect-name">Sleep</h3>
+                        <p class="effect-desc">Find restful sleep and deep relaxation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weed Blog Section -->
+    <section class="weed-blog">
+        <div class="container">
+            <div class="blog-header">
+                <h2 class="section-title">Cannabis Insights</h2>
+                <div class="blog-categories">
+                    <div class="blog-category active">All Articles</div>
+                    <div class="blog-category">Growing Tips</div>
+                    <div class="blog-category">Product Reviews</div>
+                    <div class="blog-category">Health & Wellness</div>
+                    <div class="blog-category">Industry News</div>
+                </div>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1608268997940-3f5e7b2d7e9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Growing Cannabis">
+                        <div class="blog-type">GROWING TIPS</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Beginner's Guide to Home Growing</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> May 15, 2023</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <p class="blog-excerpt">Learn the basics of starting your own cannabis garden at home with our comprehensive guide for beginners.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1589561253898-768105ca91a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="CBD Benefits">
+                        <div class="blog-type">HEALTH & WELLNESS</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">The Science Behind CBD Benefits</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Apr 28, 2023</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <p class="blog-excerpt">Explore the research-backed benefits of CBD and how it interacts with your body's endocannabinoid system.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1616699002807-39e0ebf5f8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cooking with Cannabis">
+                        <div class="blog-type">RECIPES</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Elevated Edibles: Cooking with Cannabis</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jun 2, 2023</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <p class="blog-excerpt">Discover how to infuse your favorite dishes with cannabis for delicious and effective edibles.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Lounge Section -->
+    <section class="vip-lounge">
+        <div class="container">
+            <div class="vip-container">
+                <h2 class="vip-title">VIP Lounge Membership</h2>
+                <p class="vip-subtitle">Exclusive benefits for our most valued customers</p>
+                
+                <div class="vip-benefits">
+                    <div class="vip-benefit">
+                        <div class="vip-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <h3 class="vip-benefit-title">Access to our VIP Lounge</h3>
+                        <p class="vip-benefit-desc">Enjoy your product at our VIP Lounge</p>
+                    </div>
+                    
+                    <div class="vip-benefit">
+                        <div class="vip-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="vip-benefit-title">Early Access</h3>
+                        <p class="vip-benefit-desc">Be the first to try new strains and products</p>
+                    </div>
+                    
+                    <div class="vip-benefit">
+                        <div class="vip-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="vip-benefit-title">Free Express Shipping</h3>
+                        <p class="vip-benefit-desc">Get your orders delivered faster at no cost</p>
+                    </div>
+                    
+                    <div class="vip-benefit">
+                        <div class="vip-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="vip-benefit-title">Priority Support</h3>
+                        <p class="vip-benefit-desc">24/7 dedicated assistance for VIP members</p>
+                    </div>
+                </div>
+                
+                <div class="vip-form">
+                    <input type="email" placeholder="Enter your email to join VIP">
+                    <button class="btn btn-vip">Get VIP Access</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Weedzz 420</h3>
+                    <p>Premium cannabis products and community for enthusiasts who appreciate quality and craftsmanship.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <div class="footer-links">
+                        <a href="#">Flower</a>
+                        <a href="#">Edibles</a>
+                        <a href="#">Concentrates</a>
+                        <a href="#">Vapes</a>
+                        <a href="#">Pre-rolls</a>
+                        <a href="#">Accessories</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Shipping & Returns</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-map-marker-alt"></i> 420 Green Street, CA</a>
+                        <a href="#"><i class="fas fa-phone"></i> (888) 420-6969</a>
+                        <a href="#"><i class="fas fa-envelope"></i> support@weedzz420.com</a>
+                        <a href="#"><i class="fas fa-clock"></i> Mon-Sat: 10AM - 8PM</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Weedzz 420. All rights reserved. For use only where legal. Must be 21+ to purchase.</p>
+                <p>This is a demo website for educational purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Age verification modal
+        const ageModal = document.querySelector('.age-modal');
+        const ageConfirm = document.getElementById('age-confirm');
+        const ageDeny = document.getElementById('age-deny');
+        
+        // Show modal on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            ageModal.style.display = 'flex';
+        });
+        
+        // Confirm age
+        ageConfirm.addEventListener('click', () => {
+            ageModal.style.opacity = '0';
+            setTimeout(() => {
+                ageModal.style.display = 'none';
+            }, 300);
+        });
+        
+        // Deny age
+        ageDeny.addEventListener('click', () => {
+            alert('You must be at least 21 years old to access this website.');
+            window.location.href = 'https://www.google.com';
+        });
+        
+        // Simple interactivity for the effects wheel
+        document.querySelectorAll('.wheel-slice').forEach(slice => {
+            slice.addEventListener('click', function() {
+                const effect = this.querySelector('.slice-label').textContent;
+                document.querySelector('.wheel-center .main-effect').textContent = effect;
+                
+                // Add animation
+                const wheelCenter = document.querySelector('.wheel-center');
+                wheelCenter.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                setTimeout(() => {
+                    wheelCenter.style.transform = 'translate(-50%, -50%)';
+                }, 300);
+            });
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('.main-nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Category filter buttons
+        document.querySelectorAll('.product-category').forEach(category => {
+            category.addEventListener('click', function() {
+                document.querySelectorAll('.product-category').forEach(c => {
+                    c.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // In a real implementation, this would filter products
+                alert(`Filtering by: ${this.textContent}`);
+            });
+        });
+    </script>
+</body>
+</html>
